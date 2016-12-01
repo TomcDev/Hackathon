@@ -16,15 +16,11 @@ contract Refugee {
 
   logstruct[] public log;
 
-  function Refugee(string _name, string _gender, uint _birthdate, bytes32 _irisscan, string _signer, string _location) {
+  function Refugee(string _name, string _gender, uint _birthdate, bytes32 _irisscan) {
     name = _name;
     gender = _gender;
     birthdate = _birthdate;
     irisscan = _irisscan;
-    log[0].signer = _signer;
-    log[0].location = _location;
-    log[0].reasoncontact = 'First Registration of refugee';
-    log[0].timestamp = block.timestamp;
   }
 
   function getperson() constant returns (string n, string g, uint b) {
