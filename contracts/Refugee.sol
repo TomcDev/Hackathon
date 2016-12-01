@@ -43,6 +43,6 @@ contract Refugee {
     a = log[i].signer;
     b = log[i].location;
     c = log[i].reasoncontact;
-    d = log[i].timestamp;
+    d = 1;
   }
 }
