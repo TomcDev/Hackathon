@@ -23,13 +23,13 @@ contract Refugee {
     irisscan = _irisscan;
   }
 
-  function getperson() constant returns (string n, string g, uint b) {
+  function getPerson() constant returns (string n, string g, uint b) {
     n = name;
     g = gender;
     b = birthdate;
     }
 
-  function addlog( string _signer, string _location, string _reasoncontact ) returns (bool a){
+  function addLog( string _signer, string _location, string _reasoncontact ) returns (bool a){
     uint i = log.length;
     log[i].signer = _signer;
     log[i].location = _location;
@@ -37,11 +37,11 @@ contract Refugee {
     log[i].timestamp = block.timestamp;
     a = true;
   }
-  
-  function getLog( uint _number) returns (string s, string l, string r, uint t){
-    s = log[_number].signer;
-    l = log[_number].location;
-    r = log[_number].reasoncontact;
-    t = log[_number].timestamp;
+
+  function getLog(uint _number) constant returns (string a, string b, string c, uint d) {
+    a = log[_number].signer;
+    b = log[_number].location;
+    c = log[_number].reasoncontact;
+    d = log[_number].timestamp;
   }
 }
