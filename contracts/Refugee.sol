@@ -37,4 +37,11 @@ contract Refugee {
     log[i].timestamp = block.timestamp;
     a = true;
   }
+  
+  function getLog( uint _number) returns (string s, string l, string r, uint t){
+    s = log[_number].signer;
+    l = log[_number].location;
+    r = log[_number].reasoncontact;
+    t = log[_number].timestamp;
+  }
 }
