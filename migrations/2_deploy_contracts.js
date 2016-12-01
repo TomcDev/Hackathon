@@ -5,5 +5,4 @@ module.exports = function(deployer) {
     return deployer.deploy(Refugee, Dummy.address);
   });
   deployer.deploy(Refugee);
-  deployer.autolink();
 };
