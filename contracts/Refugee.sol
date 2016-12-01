@@ -2,7 +2,6 @@ pragma solidity ^0.4.2;
 
 contract Refugee {
 
-  address[] public authorities;
   string public name;
   string public gender;
   uint public birthdate;
@@ -14,10 +13,10 @@ contract Refugee {
     string reasoncontact;
     uint timestamp;
   }
+
   logstruct[] public log;
 
   function Refugee(string _name, string _gender, uint _birthdate, bytes32 _irisscan, string _signer, string _location) {
-    authorities[0] = msg.sender;
     name = _name;
     gender = _gender;
     birthdate = _birthdate;
