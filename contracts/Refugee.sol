@@ -7,7 +7,7 @@ contract Refugee {
   uint public birthdate;
   bytes32 public irisscan;
 
-  struct logstruct {
+  struct logstruct   {
     string signer;
     string location;
     string reasoncontact;
@@ -34,14 +34,15 @@ contract Refugee {
     log[i].signer = _signer;
     log[i].location = _location;
     log[i].reasoncontact = _reasoncontact;
-    log[i].timestamp = block.timestamp;
+    log[i].timestamp = now;
     a = true;
   }
 
   function getLog(uint _number) constant returns (string a, string b, string c, uint d) {
-    a = log[_number].signer;
-    b = log[_number].location;
-    c = log[_number].reasoncontact;
-    d = log[_number].timestamp;
+    uint i = _number;
+    a = log[i].signer;
+    b = log[i].location;
+    c = log[i].reasoncontact;
+    d = log[i].timestamp;
   }
 }
