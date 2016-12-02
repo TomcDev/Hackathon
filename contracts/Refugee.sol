@@ -29,8 +29,8 @@ contract Refugee {
     b = birthdate;
     }
 
-  function addLog( string _signer, string _location, string _reasoncontact ) returns (bool a){
-    uint i = log.length;
+  function addLog( string _signer, string _location, string _reasoncontact, uint _index) returns (bool a){
+    uint i = _index;
     log[i].signer = _signer;
     log[i].location = _location;
     log[i].reasoncontact = _reasoncontact;
@@ -39,13 +39,10 @@ contract Refugee {
   }
 
   function getLog(uint _number) constant returns (string a, string b, string c, uint d) {
-    uint r = _number + 1;
-    for(uint i=_number;i<r;i++)
-        {
-            a = log[i].signer;
-            b = log[i].location;
-            c = log[i].reasoncontact;
-            d = log[i].timestamp;
-        }
+    uint i = _number;
+    a = log[i].signer;
+    b = log[i].location;
+    c = log[i].reasoncontact;
+    d = log[i].timestamp;
   }
 }
