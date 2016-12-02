@@ -39,10 +39,13 @@ contract Refugee {
   }
 
   function getLog(uint _number) constant returns (string a, string b, string c, uint d) {
-    uint i = _number;
-    a = "test";
-    b = "test";
-    c = "test";
-    d = 1;
+    uint r = _number + 1;
+    for(uint i=_number;i<r;i++)
+        {
+            a = log[i].signer;
+            b = log[i].location;
+            c = log[i].reasoncontact;
+            d = log[i].timestamp;
+        }
   }
 }
