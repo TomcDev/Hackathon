@@ -40,9 +40,9 @@ contract Refugee {
 
   function getLog(uint _number) constant returns (string a, string b, string c, uint d) {
     uint i = _number;
-    a = log[i].signer;
-    b = log[i].location;
-    c = log[i].reasoncontact;
+    a = "test";
+    b = "test";
+    c = "test";
     d = 1;
   }
 }
