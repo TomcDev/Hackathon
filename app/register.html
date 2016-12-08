@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Investment Assets</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="./app.js"></script>
+    <link href="./app.css" rel="stylesheet" type="text/css">
+    <link href="./bootstrap.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="jumbotron">
+    <div class="container">
+        <div class="row text-center">
+                <h1>Gappie</h1>
+        </div>
+        <div style="height:20vh !important;" class="row text-center">
+  <span>&nbsp;</span>
+        </div>
+        <div class="row">
+              <div class="text-center col-xs-12">
+              <input type="text" class="form-control" placeholder="Name" id="userName">
+            </div>
+        </div>
+        <div class="row">
+          <div class="text-center col-xs-12">
+              <input type="email" class="form-control" placeholder="Email" id="userEmail">
+            </div>
+        </div>
+        <div class="row">
+            <div class="text-center col-xs-12">
+              <input type="password" class="form-control" placeholder="Password" id="userPassword">
+            </div>
+        </div>
+        <div class="row text-center">
+                <button type="button" id="registerBtn" onclick="createUserAccount()" class="btn btn-sm btn-primary">Go</button>
+                <img style="display:none;" class="text-center" src="images/load.gif" width="30" id="loadGif" />
+        </div>
+    </div>
+</body>
+
+</html>

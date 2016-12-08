@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Gappie</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="./app.js"></script>
+    <link href="./app.css" rel="stylesheet" type="text/css">
+    <link href="./bootstrap.css" rel="stylesheet" type="text/css">
+</head>
+<script>
+    window.onload = function() {
+        getUser();
+        loadAssetDetails();
+        getAssetHistoryLog();
+        getUserAccounts();
+        checkIfShared();
+    }
+</script>
+
+<body class="jumbotron">
+    <div class="container">
+        <div style="padding-top:4% !important;" class="row">
+            <div class="col-xs-1">
+                <a href="javascript:history.back()">X</a>
+            </div>
+            <div class="col-xs-7">
+                <p>Car details</p>
+            </div>
+            <div class="col-xs-3">
+                <button style="display:none;" id="createBtn" type="button" onclick="saveAssetChanges()" class="btn btn-sm">save</button>
+                <button id="editBtn" type="button" onclick="editAsset()" class="btn btn-sm">edit</button>
+            </div>
+        </div>
+        <div id="assetLent" style="display:none;background-color:white !important;padding-top:1% !important;margin-bottom:2% !important;" class="row">
+            <div class="text-left col-xs-6">
+                <h5>Car is being lent</h5>
+            </div>
+                <div class="text-right col-xs-6">
+                    <button id="returnFullOwnership" type="button" onclick="returnFullOwnership()" class="btn btn-sm">return</button>
+                </div>
+        </div>
+        <div class="row">
+            <div class="text-left col-xs-12">
+                <input type="text" disabled="true" class="form-control" placeholder="Name" id="assetName">
+            </div>
+        </div>
+        <div class="row">
+            <div class="text-left col-xs-12">
+                <input type="text" disabled="true" class="form-control" placeholder="ID" id="assetID">
+            </div>
+        </div>
+        <div class="row">
+            <div class="text-left col-xs-12">
+                <input type="text" disabled="true" class="form-control" placeholder="Description" id="assetDescription">
+            </div>
+        </div>
+        <div style="padding-top:8% !important;" class=" row">
+            <div class="container">
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                              <a data-toggle="collapse" href="#collapse1">History</a>
+                            </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse">
+                          <img style="display:block;" class="text-center" src="images/load.gif" width="30" id="loadGif2" />
+                            <ul class="list-group" id="historyList">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="shareContainer" class=" row">
+            <div class="container">
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                              <a id="sharePanel" data-toggle="collapse" href="#collapse2">Share</a>
+                            </h4>
+                        </div>
+                        <div id="collapse2" class="panel-collapse collapse">
+                          <img style="display:block;" class="text-center" src="images/load.gif" width="30" id="loadGif3" />
+                            <ul class="list-group" id="userList">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <div class="input-group date" id="datetimepicker6">
+                            <input type="text" class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <div class="input-group date" id="datetimepicker7">
+                            <input type="text" class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(function () {
+                    $('#datetimepicker6').datetimepicker();
+                    $('#datetimepicker7').datetimepicker({
+                        useCurrent: false //Important! See issue #1075
+                    });
+                    $("#datetimepicker6").on("dp.change", function (e) {
+                        $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+                    });
+                    $("#datetimepicker7").on("dp.change", function (e) {
+                        $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+                    });
+                });
+            </script>
+        </div>
+        <div class="text-center row">
+            <img style="display:block;" class="text-center" src="images/load.gif" width="30" id="loadGif" />
+        </div>
+    </div>
+</body>
+
+</html>

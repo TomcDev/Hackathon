@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Gappie</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="./app.js"></script>
+    <link href="./app.css" rel="stylesheet" type="text/css">
+    <link href="./bootstrap.css" rel="stylesheet" type="text/css">
+</head>
+<script>
+window.onload = function() {
+  getUser();
+  $("#assetName").keyup(function() {
+    if ($("#assetName").val() != "" && $("#assetID").val() != "" && $("#assetDescription").val() != "" && $("input:radio").is(":checked")) {
+      $("#createBtn").prop("disabled", false);
+    }
+    else {
+      $("#createBtn").prop("disabled", true);
+    }
+  });
+  $("#assetID").keyup(function() {
+    if ($("#assetName").val() != "" && $("#assetID").val() != "" && $("#assetDescription").val() != "" && $("input:radio").is(":checked")) {
+      $("#createBtn").prop("disabled", false);
+    }
+    else {
+      $("#createBtn").prop("disabled", true);
+    }
+  });
+  $("#assetDescription").keyup(function() {
+    if ($("#assetName").val() != "" && $("#assetID").val() != "" && $("#assetDescription").val() != "" && $("input:radio").is(":checked")) {
+      $("#createBtn").prop("disabled", false);
+    }
+    else {
+      $("#createBtn").prop("disabled", true);
+    }
+  });
+  $('input:radio').click(function(){
+    if ($("#assetName").val() != "" && $("#assetID").val() != "" && $("#assetDescription").val() != "" && $("input:radio").is(":checked")) {
+      $("#createBtn").prop("disabled", false);
+    }
+    else {
+      $("#createBtn").prop("disabled", true);
+    }
+});
+}
+</script>
+<body class="jumbotron">
+    <div class="container">
+        <div class="row text-left">
+                <div class="col-xs-1">
+                  <a href="javascript:history.back()">X</a>
+                </div>
+                <div class="col-xs-7">
+                  <p>Car details</p>
+                </div>
+                <div class="col-xs-3">
+                  <button disabled="true" id="createBtn" type="button" onclick="createAsset()" class="btn btn-sm">save</button>
+                </div>
+        </div>
+        <div class="row">
+              <div class="text-left col-xs-12">
+              <input type="text" class="form-control" placeholder="Name" id="assetName">
+            </div>
+        </div>
+        <div class="row">
+              <div class="text-left col-xs-12">
+              <input type="text" class="form-control" placeholder="ID" id="assetID">
+            </div>
+        </div>
+        <div class="row">
+              <div class="text-left col-xs-12">
+              <input type="text" class="form-control" placeholder="Description" id="assetDescription">
+            </div>
+        </div>
+        <div class="text-center row">
+                <img style="display:none;" class="text-center" src="images/load.gif" width="30" id="loadGif" />
+        </div>
+    </div>
+</body>
+
+</html>
